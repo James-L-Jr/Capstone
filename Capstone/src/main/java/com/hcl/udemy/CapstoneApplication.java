@@ -13,7 +13,7 @@ public class CapstoneApplication {
 	public static void main(String[] args) {
 		System.out.println("Starting up this bad boy...");
 		SpringApplication.run(CapstoneApplication.class, args);
-		/*
+		/*  
 		try (Connection connection = JDBCUtils.getConnection();) {
 			System.out.println("MySQL Database connected...");
 			SpringApplication.run(CapstoneApplication.class, args);
