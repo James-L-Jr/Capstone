@@ -31,7 +31,6 @@ public class ProjectController {
     @Autowired
     private MapValidationErrorService mapValidationErrorService;
 
-
     @PostMapping("")
     public ResponseEntity<?> createNewProject(@Valid @RequestBody Project project, BindingResult result){
 
@@ -49,4 +48,7 @@ public class ProjectController {
 
         return new ResponseEntity<Project>(project, HttpStatus.OK);
     }
+
+    @GetMapping("/all")
+    public Iterable<Project> getAllProjects(){return projectService.findAllProjects();}
 }
