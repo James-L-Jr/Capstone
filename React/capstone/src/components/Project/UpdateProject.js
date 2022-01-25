@@ -76,7 +76,7 @@ class UpdateProject extends Component {
         <div className="container">
           <div className="row">
             <div className="col-md-8 m-auto">
-              <h5 className="display-4 text-center">Update Project form</h5>
+              <h5 className="display-4 text-center white">Update Project form</h5>
               <hr />
               <form onSubmit={this.onSubmit}>
                 <div className="form-group">
@@ -119,7 +119,7 @@ class UpdateProject extends Component {
                     <div className="invalid-feedback">{errors.description}</div>
                   )}
                 </div>
-                <h6>Start Date</h6>
+                <h6 className="white">Start Date</h6>
                 <div className="form-group">
                   <input
                     type="date"
@@ -129,7 +129,7 @@ class UpdateProject extends Component {
                     onChange={this.onChange}
                   />
                 </div>
-                <h6>Estimated End Date</h6>
+                <h6 className="white">Estimated End Date</h6>
                 <div className="form-group">
                   <input
                     type="date"
