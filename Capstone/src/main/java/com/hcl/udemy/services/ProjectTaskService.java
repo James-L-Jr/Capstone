@@ -94,6 +94,7 @@ public class ProjectTaskService {
             throw new ProjectNotFoundException("Project Task '"+pt_id+"' does not exist in project: '"+backlog_id);
         }
 
+
         return projectTask;
     }
 
@@ -110,4 +111,5 @@ public class ProjectTaskService {
         ProjectTask projectTask = findPTByProjectSequence(backlog_id, pt_id);
         projectTaskRepository.delete(projectTask);
     }
+
 }

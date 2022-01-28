@@ -8,7 +8,6 @@ import java.util.Date;
 
 @Entity
 public class ProjectTask {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -21,7 +20,7 @@ public class ProjectTask {
     private Integer priority;
     private Date dueDate;
     //ManyToOne with Backlog
-    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.REFRESH)
+    @ManyToOne(fetch = FetchType.EAGER) //REMOVE REFRESH
     @JoinColumn(name="backlog_id", updatable = false, nullable = false)
     @JsonIgnore
     private Backlog backlog;

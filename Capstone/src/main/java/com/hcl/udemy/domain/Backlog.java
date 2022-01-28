@@ -7,6 +7,7 @@ import java.util.List;
 
 @Entity
 public class Backlog {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -19,8 +20,12 @@ public class Backlog {
     @JsonIgnore
     private Project project;
 
+    //OneToMany projecttasks
     @OneToMany(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER, mappedBy = "backlog", orphanRemoval = true)
     private List<ProjectTask> projectTasks = new ArrayList<>();
+    //Cascade REFRESH
+    //ORPHAN REMOVAL
+
 
     public Backlog() {
     }
