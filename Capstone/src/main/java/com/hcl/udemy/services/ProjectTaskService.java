@@ -1,5 +1,7 @@
 package com.hcl.udemy.services;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.hcl.udemy.domain.Backlog;
@@ -92,22 +94,20 @@ public class ProjectTaskService {
             throw new ProjectNotFoundException("Project Task '"+pt_id+"' does not exist in project: '"+backlog_id);
         }
 
-
         return projectTask;
     }
 
     public ProjectTask updateByProjectSequence(ProjectTask updatedTask, String backlog_id, String pt_id){
-        ProjectTask projectTask = projectTaskRepository.findByProjectSequence(pt_id);
+        ProjectTask projectTask = findPTByProjectSequence(backlog_id, pt_id);
 
         projectTask = updatedTask;
 
         return projectTaskRepository.save(projectTask);
     }
-    //Update project task
 
-    //find existing project task
 
-    //replace it with updated task
-
-    //save update
+    public void deletePTByProjectSequence(String backlog_id, String pt_id){
+        ProjectTask projectTask = findPTByProjectSequence(backlog_id, pt_id);
+        projectTaskRepository.delete(projectTask);
+    }
 }
