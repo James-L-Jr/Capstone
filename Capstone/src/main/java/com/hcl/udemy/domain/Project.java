@@ -1,6 +1,8 @@
 package com.hcl.udemy.domain;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
@@ -31,7 +33,7 @@ public class Project {
     private Date updated_At;
 
     @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL, mappedBy = "project")
-    //
+    @JsonIgnore
     private Backlog backlog;
 
     public Project() {
@@ -118,5 +120,4 @@ public class Project {
     protected void onUpdate(){
         this.updated_At = new Date();
     }
-
 }
