@@ -14,8 +14,6 @@ import com.hcl.udemy.repositories.ProjectTaskRepository;
 
 @Service
 public class ProjectTaskService {
-
-
     @Autowired
     private BacklogRepository backlogRepository;
 
@@ -24,7 +22,6 @@ public class ProjectTaskService {
 
     @Autowired
     private ProjectRepository projectRepository;
-
 
     public ProjectTask addProjectTask(String projectIdentifier, ProjectTask projectTask){
 
@@ -51,7 +48,7 @@ public class ProjectTaskService {
                 projectTask.setStatus("TO_DO");
             }
 
-            if(projectTask.getPriority()==null){ //In the future we need projectTask.getPriority()== 0 to handle the form
+            if(projectTask.getPriority()==0||projectTask.getPriority()==null){ //In the future we need projectTask.getPriority()== 0 to handle the form
                 projectTask.setPriority(3);
             }
 
@@ -59,7 +56,6 @@ public class ProjectTaskService {
         }catch (Exception e){
             throw new ProjectNotFoundException("Project not Found");
         }
-
     }
 
     public Iterable<ProjectTask>findBacklogById(String id){
@@ -93,8 +89,7 @@ public class ProjectTaskService {
         if(!projectTask.getProjectIdentifier().equals(backlog_id)){
             throw new ProjectNotFoundException("Project Task '"+pt_id+"' does not exist in project: '"+backlog_id);
         }
-
-
+        
         return projectTask;
     }
 
@@ -106,10 +101,8 @@ public class ProjectTaskService {
         return projectTaskRepository.save(projectTask);
     }
 
-
     public void deletePTByProjectSequence(String backlog_id, String pt_id){
         ProjectTask projectTask = findPTByProjectSequence(backlog_id, pt_id);
         projectTaskRepository.delete(projectTask);
     }
-
 }
