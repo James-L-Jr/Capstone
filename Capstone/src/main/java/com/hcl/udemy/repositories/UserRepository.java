@@ -6,5 +6,4 @@ import com.hcl.udemy.domain.User;
 
 @Repository
 public interface UserRepository extends CrudRepository<User, Long> {
-	
 }
