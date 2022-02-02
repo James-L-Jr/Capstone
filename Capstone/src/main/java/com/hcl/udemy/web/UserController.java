@@ -20,13 +20,11 @@ import com.hcl.udemy.services.MapValidationErrorService;
 import com.hcl.udemy.services.UserService;
 import com.hcl.udemy.validator.UserValidator;
 import static com.hcl.udemy.security.SecurityConstants.TOKEN_PREFIX;
-
 import javax.validation.Valid;
 
 @RestController
 @RequestMapping("/api/users")
 public class UserController {
-
     @Autowired
     private MapValidationErrorService mapValidationErrorService;
 
@@ -41,8 +39,6 @@ public class UserController {
 
     @Autowired
     private AuthenticationManager authenticationManager;
-
-
 
     @PostMapping("/login")
     public ResponseEntity<?> authenticateUser(@Valid @RequestBody LoginRequest loginRequest, BindingResult result){
